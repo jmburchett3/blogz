@@ -1,18 +1,29 @@
 <!doctype html>
 <html>
-    <head>
-        <title>{{title}}</title>
-        <style>
-            .error{
-                color: red;
-            }
-        </style>
-    </head>
-<body>
+  <head>
+    <title>Blogz</title>
+    <style>
+      .error {
+        color: red;
+      }
+      </style>
+  </head>
+  <body>
+    <div style='float: right'>
+      {% if 'username' in session %}
+        {{ session['username'] }}
+        <form action="/logout" method="post" id='logout'>
+          <input type="submit" value="Log Out" />
+        </form>
+      {% else %}
+        <a href="login">login</a> | <a href="signup">Signup</a>
+      {% endif %}
+    </div>
 
     <div>
-        <a href="/blog">Main Blog Page</a>
-        <a href="/newpost">Add a Blog Post</a>
+      <a href="/">Home</a>
+      <a href="/blogz">All Blogs</a>
+      <a href="/newpost">New Post</a>
     </div>
 
     {% with messages = get_flashed_messages(with_categories=True) %}
@@ -27,5 +38,5 @@
     {% block content %}
     {% endblock %}
 
-</body>
+  </body>
 </html>

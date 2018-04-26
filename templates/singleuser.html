@@ -1,18 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Build a Blog</h1>
+    <h1>Blogz!</h1>
     <hr/>
     {% if blogs|length == 0 %}
-    <p>No blogs yet</p>
+    <p>no blogs yet</p>
     {% else %}
       {% for blog in blogs %}
       <div>
         <a href="/blogz?b={{blog.id}}"><h2>{{blog.title}}</h2></a>
         <p>{{blog.body}}</p>
         <div>written by
-          <a href="blogz?user={{blog.owner}}">{{blog.owner}}</a>
-        </div>
+          <a href="blogz?user={{blog.owner}}">{{blog.owner}}</div></a>
         <hr  />
       </div>
       {% endfor%}
